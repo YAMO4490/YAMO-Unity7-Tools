@@ -1,5 +1,14 @@
 # 변경 기록
 
+## 0.1.2 — 2026-10-17
+
+- Material/Texture Collector의 폐기 예정 ShaderUtil 속성 API를 Shader.GetPropertyCount/GetPropertyType/GetPropertyName으로 교체.
+- 본 검사기의 폐기 예정 FindObjectsSortMode 오버로드를 정렬 옵션 없는 검색으로 교체. 기존 활성/비활성 오브젝트 검색 범위는 유지.
+- FBX/NiloToon 연동 및 의존성 감지에서 AppDomain.GetAssemblies 대신 Unity의 CurrentAssemblies.GetLoadedAssemblies 사용.
+- 에디터 전용 고정 조회 테이블·캐시·창 참조에 검토한 NoAutoStaticsCleanup 수명주기 정책과 이유 명시.
+- Shader 텍스처 수집 및 현재 로드된 어셈블리 기반 FBX 옵션 검색 회귀 테스트 추가.
+- CleanBuildCache 전체 재컴파일에서 패키지 경고 0개 확인. 외부 에셋 경고는 수정 범위에서 제외.
+
 ## 0.1.1 — 2026-10-17
 
 - 시선 컴포넌트가 빈 Renderer/메시를 안전하게 처리하고 메시 교체 시 블렌드셰이프 인덱스를 갱신하도록 수정.

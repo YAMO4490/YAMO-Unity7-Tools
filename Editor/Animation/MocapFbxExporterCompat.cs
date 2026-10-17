@@ -8,6 +8,8 @@ namespace YAMO.UnityTools.Editor
     /// <summary>
     /// Reflection facade for the incompatible public APIs of FBX Exporter 4.x and 5.x.
     /// </summary>
+    // Editor reflection metadata is cached for the lifetime of its loaded assembly.
+    [Unity.Scripting.LifecycleManagement.NoAutoStaticsCleanup]
     public static class MocapFbxExporterCompat
     {
         private const string ModelExporterName = "UnityEditor.Formats.Fbx.Exporter.ModelExporter";
@@ -130,7 +132,7 @@ namespace YAMO.UnityTools.Editor
 
         private static Type FindType(string fullName)
         {
-            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+            foreach (var assembly in UnityEngine.Assemblies.CurrentAssemblies.GetLoadedAssemblies())
             {
                 try
                 {

@@ -62,6 +62,8 @@ namespace YAMO.UnityTools.Editor
     /// Reusable motion FBX binding pipeline (OptiTrack and MMRP skeletons) used by
     /// the mocap window's binding-only tool and the batch pipeline workflows.
     /// </summary>
+    // Editor mapping tables and reflection caches are assembly-lifetime metadata.
+    [Unity.Scripting.LifecycleManagement.NoAutoStaticsCleanup]
     public static class OptiTrackMotionBindingService
     {
         private const string SpineBone = "_Spine";

@@ -92,6 +92,8 @@ namespace YAMO.UnityTools.Editor
     // ================================================================
     // EditorWindow
     // ================================================================
+    // Open editor window identity must survive its Play Mode bake round trip.
+    [Unity.Scripting.LifecycleManagement.NoAutoStaticsCleanup]
     public class ForearmHingeBaker : EditorWindow
     {
         private static ForearmHingeBaker _instance;

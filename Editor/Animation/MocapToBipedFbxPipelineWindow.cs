@@ -15,6 +15,8 @@ namespace YAMO.UnityTools.Editor
     /// the OptiTrack and MMRP pipelines (bind → Forearm Hinge → 3ds Max FBX) and
     /// the FBX animation import setup that used to be its own window.
     /// </summary>
+    // Open editor window identity is owned by OnEnable/OnDisable, not Play Mode.
+    [Unity.Scripting.LifecycleManagement.NoAutoStaticsCleanup]
     public sealed class MocapToBipedFbxPipelineWindow : EditorWindow
     {
         private enum Tab

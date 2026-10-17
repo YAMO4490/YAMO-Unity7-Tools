@@ -83,6 +83,44 @@ namespace YAMO.UnityTools.Editor.Tests
         }
 
         [Test]
+        public void MaterialCollectorFindsTextureWithoutReadingNonTextureProperties()
+        {
+            var root = new GameObject("ShaderPropertiesProbe");
+            var shader = Shader.Find("Universal Render Pipeline/Lit");
+            Assert.That(shader, Is.Not.Null);
+            var material = new Material(shader);
+            var texture = new Texture2D(2, 2);
+            var window = ScriptableObject.CreateInstance<MaterialAndTextureCollectorWindow>();
+            var flags = BindingFlags.Instance | BindingFlags.NonPublic;
+            try
+            {
+                material.SetTexture("_BaseMap", texture);
+                root.AddComponent<MeshRenderer>().sharedMaterial = material;
+                typeof(MaterialAndTextureCollectorWindow).GetField("targetPrefab", flags).SetValue(window, root);
+                typeof(MaterialAndTextureCollectorWindow).GetMethod("CollectDuplicates", flags).Invoke(window, null);
+                var collected = (System.Collections.Generic.HashSet<Texture>)typeof(MaterialAndTextureCollectorWindow)
+                    .GetField("collectedTextures", flags).GetValue(window);
+                Assert.That(collected, Does.Contain(texture));
+            }
+            finally
+            {
+                Object.DestroyImmediate(window);
+                Object.DestroyImmediate(root);
+                Object.DestroyImmediate(material);
+                Object.DestroyImmediate(texture);
+            }
+        }
+
+        [Test]
+        public void FbxOptionsResolveFromCurrentlyLoadedAssemblies()
+        {
+            var options = MocapFbxExporterCompat.BuildOptions(false, false, false, true, true);
+            Assert.That(options, Is.Not.Null);
+            Assert.That(options.GetType().FullName,
+                Is.EqualTo("UnityEditor.Formats.Fbx.Exporter.ExportModelOptions"));
+        }
+
+        [Test]
         public void CompositionOverlayRendersIntoOutputAndStopsAfterClosing()
         {
             var scene = UnityEditor.SceneManagement.EditorSceneManager.NewPreviewScene();
