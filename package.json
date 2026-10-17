@@ -1,7 +1,7 @@
 {
   "name": "com.yamo.unitytools",
   "displayName": "YAMO Unity7 Tools",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "unity": "6000.7",
   "description": "YAMO Unity Editor tools for Unity 6000.7, including Mocap to Biped FBX and MMRP retargeting.",
   "dependencies": {

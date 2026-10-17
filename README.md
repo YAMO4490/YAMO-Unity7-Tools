@@ -17,7 +17,7 @@ https://github.com/YAMO4490/YAMO-Unity7-Tools.git
 - 실제 검증 환경: Unity **6000.7.0b2**, Windows
 - FBX Exporter: `com.unity.formats.fbx` **5.1.6**
 - Autodesk FBX SDK: `com.autodesk.fbx` **5.1.3**
-- 패키지 버전: **0.1.0**
+- 패키지 버전: **0.1.1**
 
 의존성은 `package.json`에 선언되어 있습니다. 이전 Unity 버전의 호환성은 이 저장소에서 보장하지 않습니다.
 
@@ -45,7 +45,8 @@ Unity 표준 이름을 사용하는 골격은 기존 표준 매핑을 유지합�
 ## 검증 범위
 
 - Unity Editor 컴파일 오류 0개 확인. 프로젝트 전체에는 기존 경고가 남아 있습니다.
-- UniCli Eval을 통한 MMRP 회귀 검증 10개 통과.
+- UniCli를 통한 전체 패키지 Edit Mode 테스트 51개 통과. 빈 메시·메시 교체·EntityId 복원·실제 URP 오버레이 캡처 회귀 테스트를 포함합니다.
+- 실제 URP 캡처 픽셀 비교로 구도선 표시 및 창 종료 후 제거 확인. 구도 창은 설정 변경 시에만 전체 뷰를 갱신합니다.
 - 실제 모션으로 Edit Mode / 30fps 베이크부터 Max Z-up FBX 출력 및 재임포트까지 확인.
 - 51개 본, 5개 시점 비교에서 베이크 클립과 최종 FBX의 최대 위치 오차 약 0.006mm, 회전 오차 0도 확인.
 - 위 수치의 전체 출력 검증 후 Chest 매핑을 Spine4로 변경했고, 변경된 매핑의 컴파일·회귀 검증·실제 아바타 임포트를 확인했습니다. Spine4 변경 후의 전체 출력과 Play Mode 전체 실행 및 장시간 배치 안정성은 별도 검증이 필요합니다.

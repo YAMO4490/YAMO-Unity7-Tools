@@ -335,7 +335,7 @@ namespace YAMO.UnityTools.Editor
             SessionState.SetBool  ("YAMO.ForearmHinge.PendingBake",     true);
             SessionState.SetString("YAMO.ForearmHinge.NewClipPath",     DetermineNewClipPath(sourceClip));
             SessionState.SetInt   ("YAMO.ForearmHinge.SampleRate",      sampleRate);
-            SessionState.SetString("YAMO.ForearmHinge.AnimGOInstanceID",animator.gameObject.GetEntityId().GetRawData().ToString());
+            SessionState.SetString("YAMO.ForearmHinge.AnimGOInstanceID",EntityId.ToULong(animator.gameObject.GetEntityId()).ToString());
             SessionState.SetString("YAMO.ForearmHinge.TempCtrlPath",   TempCtrlPath);
             SessionState.SetString("YAMO.ForearmHinge.OrigCtrlPath",   origCtrlPath);
 

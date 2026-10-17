@@ -154,9 +154,9 @@ namespace YAMO.UnityTools.Editor
             return new RunnerState
             {
                 TargetGlobalId = globalId.ToString(),
-                TargetInstanceId = targetAnimator.gameObject.GetEntityId().GetRawData(),
+                TargetInstanceId = EntityId.ToULong(targetAnimator.gameObject.GetEntityId()),
                 OriginalControllerPath = AssetDatabase.GetAssetPath(originalController),
-                OriginalControllerInstanceId = originalController != null ? originalController.GetEntityId().GetRawData() : 0,
+                OriginalControllerInstanceId = originalController != null ? EntityId.ToULong(originalController.GetEntityId()) : 0,
                 TemporaryControllerPath = $"Assets/__YAMO_MocapPipeline_{token}.controller",
                 ResultDirectory = resultDirectory,
                 FbxOutputDirectory = Path.GetFullPath(settings.FbxOutputDirectory),
