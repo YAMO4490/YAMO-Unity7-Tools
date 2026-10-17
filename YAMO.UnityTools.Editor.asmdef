@@ -1,0 +1,20 @@
+{
+    "name": "YAMO.UnityTools.Editor",
+    "rootNamespace": "YAMO.UnityTools.Editor",
+    "references": [
+        "YAMO.UnityTools.Runtime",
+        "Unity.Formats.Fbx.Editor",
+        "Autodesk.Fbx"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,24 @@
+{
+    "name": "YAMO.UnityTools.Physics.Editor",
+    "rootNamespace": "YAMO.UnityTools.Editor",
+    "references": [
+        "YAMO.UnityTools.Editor",
+        "MagicaClothV2",
+        "MagicaClothV2.Editor",
+        "VRM"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "YAMO_HAS_MAGICACLOTH",
+        "YAMO_HAS_VRM"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
